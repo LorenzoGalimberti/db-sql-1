@@ -1,0 +1,46 @@
+QUERY 1  --- Selezionare tutti gli studenti nati nel 1990
+
+select * from  university.students s where date_of_birth like '1990-%';
+
+
+QUERY 2 ---- Selezionare tutti i corsi che valgono più di 10 crediti
+
+select * from  courses c  where cfu > 10;
+
+
+QUERY 3 ---- Selezionare tutti gli studenti che hanno più di 30 anni
+
+select * from students s where date_of_birth  <= date_sub(curdate(),interval 30 year); 
+
+
+
+QUERY 4 --- Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di
+laurea 
+
+select * from courses c where year = 1 and period = 'I semestre' ;
+
+
+QUERY 5 ----- Selezionare tutti gli appelli d'esame che avvengono nel pomeriggio (dopo le 14) del
+20/06/2020
+
+select * from exams e where `date` = '2020-06-20' and `hour` > '14:00:00';
+
+
+
+QUERY 6 ----- Selezionare tutti i corsi di laurea magistrale
+
+select * from degrees d  where level = 'magistrale'; 
+
+
+
+
+QUERY 7 --- Da quanti dipartimenti è composta l'università?
+
+select count(*) from departments d ; 
+
+
+
+
+QUERY 8  --- Quanti sono gli insegnanti che non hanno un numero di telefono? 
+
+select count(*) from teachers t where phone  is null ;
